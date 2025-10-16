@@ -1,0 +1,7 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#F6EDEA"/>
+  <rect x="50" y="50" width="1100" height="700" fill="#F5EEE6" stroke="#9C7E6C" stroke-width="2" stroke-dasharray="10,5"/>
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#9C7E6C" text-anchor="middle">占位圖片</text>
+  <text x="600" y="450" font-family="Arial, sans-serif" font-size="24" fill="#333333" text-anchor="middle">1200 x 800</text>
+</svg>
+
