@@ -30,11 +30,13 @@ export default function Hero({ variant = "A" as "A" | "B" | "C" }) {
     <section className="relative mx-auto max-w-6xl px-4 py-20 md:py-24 text-center overflow-hidden">
       {/* 工作室环境背景图片 */}
       <div className="absolute inset-0 pointer-events-none">
-        <img
+        <Image
           src="/images/studio-environment-demo.webp"
           alt="美容工作室环境背景（效果图示意）"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ width: '100%', height: '100%' }}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
         />
         {/* 渐变遮罩 - 从中心向外淡化，突出环境展示 */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/70"></div>
