@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BRAND } from "@/lib/config";
 import { buildLineUrlWithUTM } from "@/lib/utm";
@@ -30,6 +31,25 @@ export default function NavBar() {
     { href: "#location", label: "到店資訊" },
     { href: "#faq", label: "常見問題" }
   ];
+
+  const handleAnchorClick = (href: string, e: React.MouseEvent) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        const navHeight = 80; // 导航栏高度
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    // 关闭手机端菜单
+    setIsMenuOpen(false);
+  };
 
   return (
     <motion.nav 
@@ -64,21 +84,45 @@ export default function NavBar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.a 
-                key={item.href}
-                href={item.href} 
-                className="relative text-[var(--brand-text)] hover:text-[var(--brand-accent)] transition-colors font-medium group"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                {item.label}
-                {/* 悬停下划线动画 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-soft-gold)] group-hover:w-full transition-all duration-300"></span>
-              </motion.a>
-            ))}
+            {navItems.map((item, index) => {
+              if (item.href.startsWith('#')) {
+                return (
+                  <motion.a 
+                    key={item.href}
+                    href={item.href} 
+                    className="relative text-[var(--brand-text)] hover:text-[var(--brand-accent)] transition-colors font-medium group"
+                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    onClick={(e) => handleAnchorClick(item.href, e)}
+                  >
+                    {item.label}
+                    {/* 悬停下划线动画 */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-soft-gold)] group-hover:w-full transition-all duration-300"></span>
+                  </motion.a>
+                );
+              } else {
+                return (
+                  <motion.div
+                    key={item.href}
+                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Link 
+                      href={item.href}
+                      className="relative text-[var(--brand-text)] hover:text-[var(--brand-accent)] transition-colors font-medium group"
+                    >
+                      {item.label}
+                      {/* 悬停下划线动画 */}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-soft-gold)] group-hover:w-full transition-all duration-300"></span>
+                    </Link>
+                  </motion.div>
+                );
+              }
+            })}
             
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -140,20 +184,42 @@ export default function NavBar() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               >
-                {navItems.map((item, index) => (
-                  <motion.a 
-                    key={item.href}
-                    href={item.href} 
-                    className="block px-4 py-3 text-[var(--brand-text)] hover:text-[var(--brand-accent)] hover:bg-[var(--brand-bg)]/50 rounded-lg transition-all duration-200 font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    whileHover={{ x: 4 }}
-                  >
-                    {item.label}
-                  </motion.a>
-                ))}
+                {navItems.map((item, index) => {
+                  if (item.href.startsWith('#')) {
+                    return (
+                      <motion.a 
+                        key={item.href}
+                        href={item.href} 
+                        className="block px-4 py-3 text-[var(--brand-text)] hover:text-[var(--brand-accent)] hover:bg-[var(--brand-bg)]/50 rounded-lg transition-all duration-200 font-medium"
+                        onClick={(e) => handleAnchorClick(item.href, e)}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        whileHover={{ x: 4 }}
+                      >
+                        {item.label}
+                      </motion.a>
+                    );
+                  } else {
+                    return (
+                      <motion.div
+                        key={item.href}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        whileHover={{ x: 4 }}
+                      >
+                        <Link 
+                          href={item.href}
+                          className="block px-4 py-3 text-[var(--brand-text)] hover:text-[var(--brand-accent)] hover:bg-[var(--brand-bg)]/50 rounded-lg transition-all duration-200 font-medium"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
+                    );
+                  }
+                })}
                 
                 <motion.div 
                   className="px-4 pt-4"
