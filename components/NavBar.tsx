@@ -24,6 +24,7 @@ export default function NavBar() {
   };
 
   const navItems = [
+    { href: "/", label: "首頁" },
     { href: "#services", label: "服務項目" },
     { href: "#portfolio", label: "作品展示" },
     { href: "#reviews", label: "客戶評價" },
@@ -37,6 +38,7 @@ export default function NavBar() {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
+        // 如果元素在当前页面，直接滚动
         const navHeight = 80; // 导航栏高度
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - navHeight;
@@ -45,6 +47,10 @@ export default function NavBar() {
           top: offsetPosition,
           behavior: 'smooth'
         });
+      } else {
+        // 如果元素不在当前页面，跳转到主页并滚动到对应位置
+        const basePath = process.env.NODE_ENV === 'production' ? '/beauty-landing' : '';
+        window.location.href = `${basePath}/${href}`;
       }
     }
     // 关闭手机端菜单
