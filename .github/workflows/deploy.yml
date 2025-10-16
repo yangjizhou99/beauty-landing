@@ -39,6 +39,9 @@ jobs:
         
       - name: 构建项目
         run: npm run build
+        env:
+          NODE_ENV: production
+          GITHUB_ACTIONS: true
         
       - name: 设置Pages
         uses: actions/configure-pages@v4
