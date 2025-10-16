@@ -142,7 +142,7 @@ export default function BeforeAfterSlider({
         {/* Before 图片 */}
         <div className="absolute inset-0">
           <Image
-            src={beforeSrc || "/images/portfolio/placeholder.svg"}
+            src={beforeSrc || "/beauty-landing/images/portfolio/placeholder.svg"}
             alt={`${alt} - 前`}
             fill
             className="object-cover"
@@ -156,7 +156,7 @@ export default function BeforeAfterSlider({
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
           <Image
-            src={afterSrc || "/images/portfolio/placeholder.svg"}
+            src={afterSrc || "/beauty-landing/images/portfolio/placeholder.svg"}
             alt={`${alt} - 后`}
             fill
             className="object-cover"

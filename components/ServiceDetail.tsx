@@ -29,13 +29,13 @@ export default function ServiceDetail({ service, landingText, className = "" }: 
   const getBackgroundImage = (serviceId: string) => {
     switch (serviceId) {
       case 'lash':
-        return '/images/services/lash-demo.webp'; // 美睫效果图
+        return '/beauty-landing/images/services/lash-demo.webp'; // 美睫效果图
       case 'face':
-        return '/images/services/face-demo.webp'; // 脸部保养效果图
+        return '/beauty-landing/images/services/face-demo.webp'; // 脸部保养效果图
       case 'scalp':
-        return '/images/services/scalp-demo.webp'; // 育发效果图
+        return '/beauty-landing/images/services/scalp-demo.webp'; // 育发效果图
       case 'nail':
-        return '/images/services/nail-demo.webp'; // 美甲效果图
+        return '/beauty-landing/images/services/nail-demo.webp'; // 美甲效果图
       default:
         return null;
     }
