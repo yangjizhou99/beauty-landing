@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        img { max-width: 200px; margin: 10px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>GitHub Pages Image Debug</h1>
+    
+    <div class="test">
+        <h2>Test 1: Placeholder SVG (should work)</h2>
+        <img src="/beauty-landing/images/placeholder.svg" alt="Placeholder SVG" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='FAILED'">
+    </div>
+    
+    <div class="test">
+        <h2>Test 2: Studio Environment JPG (new format)</h2>
+        <img src="/beauty-landing/images/studio-environment-demo.jpg" alt="Studio Environment JPG" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='FAILED'">
+    </div>
+    
+    <div class="test">
+        <h2>Test 3: Lash Natural JPG (new format)</h2>
+        <img src="/beauty-landing/images/portfolio/lash-natural-demo.jpg" alt="Lash Natural JPG" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='FAILED'">
+    </div>
+    
+    <div class="test">
+        <h2>Test 4: Studio Environment WebP (original format)</h2>
+        <img src="/beauty-landing/images/studio-environment-demo.webp" alt="Studio Environment WebP" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='FAILED'">
+    </div>
+    
+    <div class="test">
+        <h2>Test 5: Without basePath (should fail)</h2>
+        <img src="/images/placeholder.svg" alt="No basePath" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='FAILED'">
+    </div>
+    
+    <div class="test">
+        <h2>File Size Check</h2>
+        <p>Check browser Network tab to see actual file sizes and response codes</p>
+    </div>
+    
+    <script>
+        // Log all image load attempts
+        document.querySelectorAll('img').forEach((img, index) => {
+            img.addEventListener('load', () => {
+                console.log(`Image ${index + 1} loaded successfully:`, img.src);
+            });
+            img.addEventListener('error', () => {
+                console.log(`Image ${index + 1} failed to load:`, img.src);
+            });
+        });
+    </script>
+</body>
+</html>
