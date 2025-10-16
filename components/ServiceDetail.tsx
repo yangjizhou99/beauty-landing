@@ -25,62 +25,98 @@ export default function ServiceDetail({ service, landingText, className = "" }: 
     setIsExpanded(!isExpanded);
   };
 
+  // 根据服务类型选择对应的背景图片
+  const getBackgroundImage = (serviceId: string) => {
+    switch (serviceId) {
+      case 'lash':
+        return '/images/portfolio/lash-natural-demo.webp';
+      case 'face':
+        return '/images/portfolio/face-care-demo.webp';
+      case 'scalp':
+        return '/images/portfolio/scalp-care-demo.webp';
+      case 'nail':
+        return '/images/portfolio/nail-design-demo.webp';
+      default:
+        return null;
+    }
+  };
+
+  const backgroundImage = getBackgroundImage(service.id);
+
   return (
     <div className={`bg-white rounded-2xl shadow-lg overflow-hidden card-hover ${className}`}>
-      {/* 服务基本信息 */}
-      <div className="p-8 relative">
-        {/* 装饰性背景 */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--brand-accent)]/5 to-transparent rounded-bl-full"></div>
-        
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex-1">
-            <div className="flex items-center gap-4 mb-3">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-[var(--brand-text)] to-[var(--brand-warm-brown)] bg-clip-text text-transparent">
-                {service.title}
-              </h3>
-              {service.badge && (
-                <span className="bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-soft-gold)] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                  {service.badge}
-                </span>
-              )}
+      {/* 服务展示图片 */}
+      {backgroundImage && (
+        <div className="relative h-48 w-full">
+          <Image
+            src={backgroundImage}
+            alt={`${service.title}服务展示（效果图示意）`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          {/* 图片遮罩 - 让图片更美观 */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent"></div>
+          
+          {/* 服务标题叠加在图片上 */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-white drop-shadow-lg">
+                  {service.title}
+                </h3>
+                {service.badge && (
+                  <span className="inline-block mt-1 bg-gradient-to-r from-[var(--brand-accent)] to-[var(--brand-soft-gold)] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">
+                    {service.badge}
+                  </span>
+                )}
+              </div>
+              <div className="text-xs text-white/80 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
+                效果图示意
+              </div>
             </div>
-            <p className="text-[var(--brand-text)]/80 text-lg leading-relaxed mb-6">
-              {service.tagline}
-            </p>
           </div>
         </div>
+      )}
+      
+      {/* 服务详细信息 */}
+      <div className="p-6">
+        {/* 服务描述 */}
+        <p className="text-[var(--brand-text)]/80 text-base leading-relaxed mb-6">
+          {service.tagline}
+        </p>
 
         {/* 服务详情 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {service.priceRange && (
-            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[var(--brand-light-pink)]/30 to-transparent rounded-xl border border-[var(--brand-accent)]/10">
-              <div className="p-2 bg-[var(--brand-accent)]/10 rounded-lg">
-                <DollarSign size={20} className="text-[var(--brand-accent)]" />
+            <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-[var(--brand-light-pink)]/20 to-transparent rounded-lg border border-[var(--brand-accent)]/10">
+              <div className="p-2 bg-[var(--brand-accent)]/10 rounded-md">
+                <DollarSign size={18} className="text-[var(--brand-accent)]" />
               </div>
               <div>
-                <span className="text-sm text-[var(--brand-text)]/60 block">價格範圍</span>
-                <span className="text-base font-semibold text-[var(--brand-text)]">{service.priceRange}</span>
+                <span className="text-xs text-[var(--brand-text)]/60 block">價格範圍</span>
+                <span className="text-sm font-semibold text-[var(--brand-text)]">{service.priceRange}</span>
               </div>
             </div>
           )}
           {service.duration && (
-            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[var(--brand-cream)]/30 to-transparent rounded-xl border border-[var(--brand-accent)]/10">
-              <div className="p-2 bg-[var(--brand-accent)]/10 rounded-lg">
-                <Clock size={20} className="text-[var(--brand-accent)]" />
+            <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-[var(--brand-cream)]/20 to-transparent rounded-lg border border-[var(--brand-accent)]/10">
+              <div className="p-2 bg-[var(--brand-accent)]/10 rounded-md">
+                <Clock size={18} className="text-[var(--brand-accent)]" />
               </div>
               <div>
-                <span className="text-sm text-[var(--brand-text)]/60 block">服務時長</span>
-                <span className="text-base font-semibold text-[var(--brand-text)]">{service.duration}</span>
+                <span className="text-xs text-[var(--brand-text)]/60 block">服務時長</span>
+                <span className="text-sm font-semibold text-[var(--brand-text)]">{service.duration}</span>
               </div>
             </div>
           )}
-          <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[var(--brand-light-pink)]/30 to-transparent rounded-xl border border-[var(--brand-accent)]/10">
-            <div className="p-2 bg-[var(--brand-accent)]/10 rounded-lg">
-              <MapPin size={20} className="text-[var(--brand-accent)]" />
+          <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-[var(--brand-cream)]/20 to-transparent rounded-lg border border-[var(--brand-accent)]/10 md:col-span-2">
+            <div className="p-2 bg-[var(--brand-accent)]/10 rounded-md">
+              <MapPin size={18} className="text-[var(--brand-accent)]" />
             </div>
             <div>
-              <span className="text-sm text-[var(--brand-text)]/60 block">服務地點</span>
-              <span className="text-base font-semibold text-[var(--brand-text)]">新竹東區</span>
+              <span className="text-xs text-[var(--brand-text)]/60 block">服務地點</span>
+              <span className="text-sm font-semibold text-[var(--brand-text)]">新竹東區</span>
             </div>
           </div>
         </div>
