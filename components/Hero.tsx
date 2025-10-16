@@ -31,7 +31,7 @@ export default function Hero({ variant = "A" as "A" | "B" | "C" }) {
       {/* 工作室环境背景图片 */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src="/images/studio-environment-demo.jpg"
+          src="/images/studio-environment-demo.webp"
           alt="美容工作室环境背景（效果图示意）"
           fill
           className="object-cover"
