@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Debug - GitHub Pages</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 8px; }
+        img { max-width: 200px; margin: 10px; border: 2px solid #ddd; }
+        .success { border-color: green; }
+        .error { border-color: red; }
+        .info { background: #f0f8ff; }
+    </style>
+</head>
+<body>
+    <h1>GitHub Pages Image Debug</h1>
+    <p class="info">检查服务图片在 GitHub Pages 上的加载情况</p>
+    
+    <div class="test">
+        <h2>Service Images Test</h2>
+        <p>Testing service images from /beauty-landing/images/services/</p>
+        
+        <div>
+            <h3>1. Lash Demo (应该工作)</h3>
+            <img src="/beauty-landing/images/services/lash-demo.webp" 
+                 alt="Lash Demo" 
+                 onload="this.style.border='2px solid green'; console.log('Lash loaded')"
+                 onerror="this.style.border='2px solid red'; console.log('Lash failed')">
+        </div>
+        
+        <div>
+            <h3>2. Face Demo (可能失败)</h3>
+            <img src="/beauty-landing/images/services/face-demo.webp" 
+                 alt="Face Demo" 
+                 onload="this.style.border='2px solid green'; console.log('Face loaded')"
+                 onerror="this.style.border='2px solid red'; console.log('Face failed')">
+        </div>
+        
+        <div>
+            <h3>3. Scalp Demo (可能失败)</h3>
+            <img src="/beauty-landing/images/services/scalp-demo.webp" 
+                 alt="Scalp Demo" 
+                 onload="this.style.border='2px solid green'; console.log('Scalp loaded')"
+                 onerror="this.style.border='2px solid red'; console.log('Scalp failed')">
+        </div>
+        
+        <div>
+            <h3>4. Nail Demo (可能失败)</h3>
+            <img src="/beauty-landing/images/services/nail-demo.webp" 
+                 alt="Nail Demo" 
+                 onload="this.style.border='2px solid green'; console.log('Nail loaded')"
+                 onerror="this.style.border='2px solid red'; console.log('Nail failed')">
+        </div>
+    </div>
+    
+    <div class="test">
+        <h2>File Size Check</h2>
+        <p>Check browser Network tab for file sizes and response codes</p>
+        <ul>
+            <li>Lash: ~2.1MB</li>
+            <li>Face: ~2.3MB</li>
+            <li>Scalp: ~2.3MB</li>
+            <li>Nail: ~2.1MB</li>
+        </ul>
+    </div>
+    
+    <script>
+        console.log('Image Debug Page Loaded');
+        
+        // Log all image load attempts
+        document.querySelectorAll('img').forEach((img, index) => {
+            img.addEventListener('load', () => {
+                console.log(`Image ${index + 1} loaded successfully:`, img.src);
+            });
+            img.addEventListener('error', (e) => {
+                console.log(`Image ${index + 1} failed to load:`, img.src, e);
+            });
+        });
+    </script>
+</body>
+</html>
