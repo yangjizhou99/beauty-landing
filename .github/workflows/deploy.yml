@@ -43,21 +43,6 @@ jobs:
           NODE_ENV: production
           GITHUB_ACTIONS: true
         
-      - name: 验证构建产物
-        run: |
-          echo "检查构建产物目录结构:"
-          ls -la out/
-          echo "检查图片文件:"
-          ls -la out/images/ || echo "images目录不存在"
-          ls -la out/images/portfolio/ || echo "portfolio目录不存在"
-          ls -la out/images/services/ || echo "services目录不存在"
-          echo "检查特定图片文件是否存在:"
-          find out/ -name "*demo*" -type f || echo "没有找到demo文件"
-          echo "检查所有图片文件:"
-          find out/ -name "*.jpg" -o -name "*.webp" -o -name "*.svg" -o -name "*.png" | head -20
-          echo "检查文件大小:"
-          find out/ -name "*demo*" -type f -exec ls -lh {} \;
-        
       - name: 设置Pages
         uses: actions/configure-pages@v4
         with:
