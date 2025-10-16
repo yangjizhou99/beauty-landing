@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ChevronDown, MessageCircle, Clock, DollarSign, MapPin } from "lucide-react";
 import { Service } from "@/lib/config";
+import Image from "next/image";
 
 interface LandingText {
   id: string;

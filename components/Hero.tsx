@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { BRAND } from "@/lib/config";
 import { buildLineUrlWithUTM } from "@/lib/utm";
+import Image from "next/image";
 
 export default function Hero({ variant = "A" as "A" | "B" | "C" }) {
   const copy = {
@@ -27,18 +28,33 @@ export default function Hero({ variant = "A" as "A" | "B" | "C" }) {
 
   return (
     <section className="relative mx-auto max-w-6xl px-4 py-20 md:py-24 text-center overflow-hidden">
-      {/* 背景装饰元素 */}
+      {/* 工作室环境背景图片 */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* 主装饰光晕 */}
-        <div className="absolute top-20 left-1/4 w-32 h-32 bg-gradient-to-r from-[var(--brand-soft-gold)]/20 to-[var(--brand-accent)]/10 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-20 right-1/4 w-40 h-40 bg-gradient-to-l from-[var(--brand-accent)]/15 to-[var(--brand-soft-gold)]/5 rounded-full blur-3xl animate-float" style={{animationDelay: '1.5s'}}></div>
+        <Image
+          src="/images/studio-environment-demo.webp"
+          alt="美容工作室环境背景（效果图示意）"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+        {/* 渐变遮罩 - 从中心向外淡化，突出环境展示 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-white/30"></div>
+      </div>
+      
+      {/* 环境展示装饰元素 */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* 柔和光晕 - 与品牌视觉协调 */}
+        <div className="absolute top-20 left-1/4 w-32 h-32 bg-gradient-to-r from-white/30 to-white/10 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-20 right-1/4 w-40 h-40 bg-gradient-to-l from-white/20 to-white/5 rounded-full blur-3xl animate-float" style={{animationDelay: '1.5s'}}></div>
         
-        {/* 几何装饰 */}
-        <div className="absolute top-32 right-20 w-6 h-6 bg-[var(--brand-accent)]/20 rotate-45 animate-pulse"></div>
-        <div className="absolute bottom-32 left-20 w-4 h-4 bg-[var(--brand-soft-gold)]/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        {/* 精致几何装饰 */}
+        <div className="absolute top-32 right-20 w-6 h-6 bg-white/30 rotate-45 animate-pulse"></div>
+        <div className="absolute bottom-32 left-20 w-4 h-4 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
         
-        {/* 渐变背景 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-light-pink)]/30 via-transparent to-[var(--brand-cream)]/20"></div>
+        {/* 品牌色调强调 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-accent)]/5 via-transparent to-[var(--brand-soft-gold)]/5"></div>
       </div>
 
       <motion.h1 

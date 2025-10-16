@@ -5,7 +5,9 @@
     "tagline": "自然到濃密，多款捲翹與長度可選",
     "priceRange": "NT$ 799–1,599（含稅）",
     "duration": "60–90 分",
-    "badge": "招牌"
+    "badge": "招牌",
+    "image": "/images/services/lash-demo.webp",
+    "imageAlt": "美睫服务效果图示意"
   },
   {
     "id": "face",
@@ -13,7 +15,9 @@
     "tagline": "深層清潔・保濕修護・臉部撥筋",
     "priceRange": "NT$ 999–1,999",
     "duration": "60–90 分",
-    "badge": null
+    "badge": null,
+    "image": "/images/services/face-demo.webp",
+    "imageAlt": "脸部保养服务效果图示意"
   },
   {
     "id": "scalp",
@@ -21,7 +25,9 @@
     "tagline": "頭皮健檢與養護方案",
     "priceRange": "NT$ 1,200–2,500",
     "duration": "45–60 分",
-    "badge": "新品"
+    "badge": "新品",
+    "image": "/images/services/scalp-demo.webp",
+    "imageAlt": "育发服务效果图示意"
   },
   {
     "id": "nail",
@@ -29,7 +35,9 @@
     "tagline": "基礎保養・凝膠設計",
     "priceRange": "NT$ 699–1,599",
     "duration": "60–90 分",
-    "badge": null
+    "badge": null,
+    "image": "/images/services/nail-demo.webp",
+    "imageAlt": "美甲服务效果图示意"
   }
 ]
 

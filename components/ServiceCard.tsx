@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Service } from "@/lib/config";
 import { BRAND } from "@/lib/config";
 import { buildLineUrlWithUTM } from "@/lib/utm";
+import Image from "next/image";
 
 interface ServiceCardProps {
   service: Service;
@@ -20,7 +21,21 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   };
 
   return (
-    <Card className="h-full bg-[var(--brand-surface)] border-[var(--brand-accent)]/20 hover:shadow-lg transition-all duration-300">
+    <Card className="h-full bg-[var(--brand-surface)] border-[var(--brand-accent)]/20 hover:shadow-lg transition-all duration-300 overflow-hidden">
+      {/* 服务图片 */}
+      {service.image && (
+        <div className="relative h-48 w-full">
+          <Image
+            src={service.image}
+            alt={service.imageAlt || service.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          />
+          <div className="absolute inset-0 bg-black/10"></div>
+        </div>
+      )}
+      
       <CardHeader className="text-center pb-4">
         <div className="flex justify-center mb-3">
           <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center">

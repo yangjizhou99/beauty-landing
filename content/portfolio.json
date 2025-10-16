@@ -2,30 +2,30 @@
   {
     "id": "lash-001",
     "category": "美睫",
-    "cover": "/images/portfolio/lash-natural-1200.webp",
+    "cover": "/images/portfolio/lash-natural-demo.webp",
     "before": "/images/portfolio/lash-before-1200.webp",
     "after": "/images/portfolio/lash-after-1200.webp",
-    "alt": "新竹東區美睫｜自然款前後對比"
+    "alt": "新竹東區美睫｜自然款前後對比（效果图示意）"
   },
   {
     "id": "face-001",
     "category": "臉部",
-    "cover": "/images/portfolio/face-care-1200.webp",
-    "alt": "新竹東區臉部保養｜深層清潔效果"
+    "cover": "/images/portfolio/face-care-demo.webp",
+    "alt": "新竹東區臉部保養｜深層清潔效果（效果图示意）"
   },
   {
     "id": "scalp-001",
     "category": "育髮",
-    "cover": "/images/portfolio/scalp-care-1200.webp",
+    "cover": "/images/portfolio/scalp-care-demo.webp",
     "before": "/images/portfolio/scalp-before-1200.webp",
     "after": "/images/portfolio/scalp-after-1200.webp",
-    "alt": "新竹東區育髮｜頭皮養護前後對比"
+    "alt": "新竹東區育髮｜頭皮養護前後對比（效果图示意）"
   },
   {
     "id": "nail-001",
     "category": "美甲",
-    "cover": "/images/portfolio/nail-design-1200.webp",
-    "alt": "新竹東區美甲｜凝膠設計作品"
+    "cover": "/images/portfolio/nail-design-demo.webp",
+    "alt": "新竹東區美甲｜凝膠設計作品（效果图示意）"
   },
   {
     "id": "lash-002",

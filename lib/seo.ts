@@ -18,7 +18,7 @@ export const BASE_METADATA: Metadata = {
     type: "website",
     title: `新竹東區專業美容工作室｜${BRAND.name}`,
     description: `專業美睫、臉部保養、育髮、美甲服務。新竹東區科學園區、好市多商圈首選美容工作室。`,
-    images: ["/images/og.jpg"],
+    images: ["/images/og-demo.jpg"],
     locale: "zh_TW",
     siteName: BRAND.name,
   },
@@ -26,7 +26,7 @@ export const BASE_METADATA: Metadata = {
     card: "summary_large_image",
     title: `新竹東區專業美容｜${BRAND.name}`,
     description: `專業美睫、臉部保養、育髮、美甲服務。讓您的美麗看得見！`,
-    images: ["/images/og.jpg"],
+    images: ["/images/og-demo.jpg"],
   },
   alternates: { 
     canonical: "/" 

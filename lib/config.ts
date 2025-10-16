@@ -23,6 +23,8 @@ export type Service = {
   priceRange?: string;   // 例：NT$ 799–1,599（含稅/未稅）
   duration?: string;     // 例：60–90 分
   badge?: "招牌" | "新品" | "限時" | null;
+  image?: string;        // 服務展示圖片路徑
+  imageAlt?: string;     // 圖片替代文字
 };
 
 export type Work = {
