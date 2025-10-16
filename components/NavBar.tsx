@@ -85,15 +85,18 @@ export default function NavBar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Button 
-                onClick={handleLineClick}
-                className="btn-gradient text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="mr-2">💬</span>
-                加 LINE 預約
-              </Button>
+                <Button 
+                  onClick={handleLineClick}
+                  className="btn-gradient text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl"
+                >
+                  <span className="mr-2">💬</span>
+                  加 LINE 預約
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
 
@@ -157,12 +160,12 @@ export default function NavBar() {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.4 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Button 
                     onClick={handleLineClick}
                     className="w-full btn-gradient text-white font-semibold py-3 rounded-full"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                   >
                     <span className="mr-2">💬</span>
                     加 LINE 預約

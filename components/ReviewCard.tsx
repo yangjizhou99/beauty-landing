@@ -63,7 +63,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
       
       {/* 引用装饰 */}
       <div className="absolute top-6 left-6 text-6xl text-[var(--brand-accent)]/10 font-serif leading-none">
-        "
+        &ldquo;
       </div>
 
       {/* 头部信息 */}

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronDown, ChevronUp, MessageCircle, Clock, DollarSign, MapPin } from "lucide-react";
+import { ChevronDown, MessageCircle, Clock, DollarSign, MapPin } from "lucide-react";
 import { Service } from "@/lib/config";
 
 interface LandingText {
