@@ -29,13 +29,13 @@ export default function ServiceDetail({ service, landingText, className = "" }: 
   const getBackgroundImage = (serviceId: string) => {
     switch (serviceId) {
       case 'lash':
-        return '/images/portfolio/lash-natural-demo.webp';
+        return '/images/portfolio/lash-natural-demo.jpg'; // 测试 JPG 格式
       case 'face':
-        return '/images/portfolio/face-care-demo.webp';
+        return '/images/portfolio/placeholder.svg'; // 临时使用占位符
       case 'scalp':
-        return '/images/portfolio/scalp-care-demo.webp';
+        return '/images/portfolio/placeholder.svg'; // 临时使用占位符
       case 'nail':
-        return '/images/portfolio/nail-design-demo.webp';
+        return '/images/portfolio/placeholder.svg'; // 临时使用占位符
       default:
         return null;
     }
