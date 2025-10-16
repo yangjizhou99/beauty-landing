@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
-    // 在生产环境中禁用图片优化
-    ...(isProduction && { loader: 'custom', loaderFile: './lib/imageLoader.js' })
+    // 在生产环境中禁用图片优化，不使用自定义加载器
+    ...(isProduction && { loader: 'custom' })
   },
   basePath: isProduction ? '/beauty-landing' : '',
   assetPrefix: isProduction ? '/beauty-landing/' : '',

@@ -25,12 +25,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       {/* 服务图片 */}
       {service.image && (
         <div className="relative h-48 w-full">
-          <Image
+          <img
             src={service.image}
             alt={service.imageAlt || service.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ width: '100%', height: '100%' }}
           />
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
