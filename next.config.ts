@@ -7,9 +7,7 @@ const nextConfig: NextConfig = {
   ...(isProduction && { output: 'export' }),
   trailingSlash: true,
   images: {
-    unoptimized: true,
-    // 在生产环境中使用自定义加载器处理 basePath
-    ...(isProduction && { loader: 'custom', loaderFile: './lib/imageLoader.js' })
+    unoptimized: true
   },
   basePath: isProduction ? '/beauty-landing' : '',
   assetPrefix: isProduction ? '/beauty-landing/' : '',
