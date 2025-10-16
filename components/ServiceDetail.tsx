@@ -29,13 +29,13 @@ export default function ServiceDetail({ service, landingText, className = "" }: 
   const getBackgroundImage = (serviceId: string) => {
     switch (serviceId) {
       case 'lash':
-        return '/beauty-landing/images/portfolio/lash-natural-demo.jpg'; // 测试 JPG 格式
+        return '/images/portfolio/lash-natural-demo.jpg'; // 测试 JPG 格式
       case 'face':
-        return '/beauty-landing/images/portfolio/placeholder.svg'; // 临时使用占位符
+        return '/images/portfolio/placeholder.svg'; // 临时使用占位符
       case 'scalp':
-        return '/beauty-landing/images/portfolio/placeholder.svg'; // 临时使用占位符
+        return '/images/portfolio/placeholder.svg'; // 临时使用占位符
       case 'nail':
-        return '/beauty-landing/images/portfolio/placeholder.svg'; // 临时使用占位符
+        return '/images/portfolio/placeholder.svg'; // 临时使用占位符
       default:
         return null;
     }
@@ -48,11 +48,12 @@ export default function ServiceDetail({ service, landingText, className = "" }: 
       {/* 服务展示图片 */}
       {backgroundImage && (
         <div className="relative h-48 w-full">
-          <img
+          <Image
             src={backgroundImage}
             alt={`${service.title}服务展示（效果图示意）`}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ width: '100%', height: '100%' }}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {/* 图片遮罩 - 让图片更美观 */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent"></div>

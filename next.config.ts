@@ -3,10 +3,13 @@ import type { NextConfig } from "next";
 const isProduction = process.env.NODE_ENV === 'production' || process.env.GITHUB_ACTIONS === 'true';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // 只在生产环境使用静态导出
+  ...(isProduction && { output: 'export' }),
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    // 在生产环境中禁用图片优化
+    ...(isProduction && { loader: 'custom', loaderFile: './lib/imageLoader.js' })
   },
   basePath: isProduction ? '/beauty-landing' : '',
   assetPrefix: isProduction ? '/beauty-landing/' : '',

@@ -107,7 +107,7 @@ export default function PortfolioGrid({ items }: PortfolioGridProps) {
               >
                 <div className="aspect-[4/3] relative overflow-hidden">
                   <Image
-                    src={work.cover || "/beauty-landing/images/portfolio/placeholder.svg"}
+                    src={work.cover || "/images/portfolio/placeholder.svg"}
                     alt={work.alt}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
