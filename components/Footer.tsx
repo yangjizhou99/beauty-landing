@@ -49,6 +49,10 @@ export default function Footer() {
                 <span className="text-[var(--brand-text)]/80 font-medium">{BRAND.address}</span>
               </div>
               <div className="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-xl">
+                <span className="text-lg">📞</span>
+                <span className="text-[var(--brand-text)]/80 font-medium">{BRAND.phone}</span>
+              </div>
+              <div className="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-xl">
                 <span className="text-lg">🕒</span>
                 <span className="text-[var(--brand-text)]/80 font-medium">{BRAND.open}</span>
               </div>

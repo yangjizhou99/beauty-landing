@@ -4,7 +4,7 @@ import { BRAND } from "@/lib/config";
 export default function MapEmbed() {
   const handleMapOpen = () => {
     // 開啟 Google Maps 應用程式
-    const mapUrl = "https://maps.app.goo.gl/iLAHqt4WvetcqjQL7";
+    const mapUrl = "https://maps.app.goo.gl/afBdY4QbuG3Gw7pB7";
     window.open(mapUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -17,7 +17,7 @@ export default function MapEmbed() {
               到店資訊
             </h2>
             <p className="text-lg text-[var(--brand-text)]/70">
-              {BRAND.address}｜{BRAND.open}｜支付：{BRAND.pay}
+              {BRAND.address}｜{BRAND.phone}｜{BRAND.open}｜支付：{BRAND.pay}
             </p>
           </div>
 

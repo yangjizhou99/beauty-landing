@@ -67,7 +67,7 @@ export function jsonLdBeautySalon() {
         name: "好市多商圈"
       }
     ],
-    telephone: "+886-3-1234567", // 占位電話
+    telephone: "+886-905-203865",
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
